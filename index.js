@@ -49,15 +49,9 @@ const countries = dataRow.map((countrie) => {
         }
     }
     let density;
-    let area = numbersAux[1];
-    let population = Number(numbersAux[0]);
-    if (!area) {
-        area = "No area";
-        density = population;
-    }
-    else {
-        density = population / Number(area);
-    }
+    let area = (numbersAux[1]);
+    let population = (numbersAux[0]);
+    density = population / (area);
     countrieObj.name = stringAux;
     if (numbersAux.length === 2) {
         countrieObj.population = population;

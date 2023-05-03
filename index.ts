@@ -3,7 +3,7 @@ import * as fs from 'fs';
 interface Country {
     name: string,
     population: number,
-    area: number|string,
+    area: number,
     density: number
 }
 
@@ -28,7 +28,7 @@ const countries: Country[] = dataRow.map((countrie) => {
 
     const separateString: string[] = countrie.split(' ');
     let stringAux: string = "";
-    let numbersAux: (string|number)[] = [];
+    let numbersAux: number[] = [];
 
     for(let j = 0 ; j <separateString.length ; j++){
         if(!separateString[j].match(/\d/)){
@@ -40,16 +40,11 @@ const countries: Country[] = dataRow.map((countrie) => {
     }
 
     let density: number;
-    let area: string|number = numbersAux[1];
-    let population: number = Number(numbersAux[0]);
+    let area: number = numbersAux[1];
+    let population: number = numbersAux[0];
 
-    if(!area){
-        area = "No area";
-        density = population
-    }else{
-        density = population / Number(area)
-    }
-
+    density = population / (area)
+    
     countrieObj.name = stringAux;
 
     if(numbersAux.length===2){
