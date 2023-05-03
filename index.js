@@ -59,9 +59,11 @@ const countries = dataRow.map((countrie) => {
         density = population / Number(area);
     }
     countrieObj.name = stringAux;
-    countrieObj.population = population;
-    countrieObj.area = area;
-    countrieObj.density = density;
+    if (numbersAux.length === 2) {
+        countrieObj.population = population;
+        countrieObj.area = area;
+        countrieObj.density = density;
+    }
     return countrieObj;
 });
 countries.sort((a, b) => b.density - a.density);
